@@ -1,51 +1,27 @@
-package com.montessori.model;
+package com.montessori.bean;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.montessori.model.Boleta;
+import com.montessori.model.Cuenta;
+import com.montessori.model.Profesor;
 
-@Entity
-@Table(name = "tb_alumno")
-public class Alumno {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idAlumno")
+public class AlumnoBean {
+
 	private int idAlumno;
-	
-	@Column(name = "nombre_alumno", length = 30, nullable = false)
 	private String nombreAl;
-	
-	@Column(name = "app_alumno", length = 30, nullable = false)
 	private String appAl;
-	
-	@Column(name = "apm_alumno", length = 30, nullable = false)
 	private String apmAl;
-	
-	@Column(name = "edad_alumno",  nullable = false)
 	private int edadAl;
-	
-	@Column(name = "sexo_alumno", length = 5, nullable = false)
 	private String sexoAl;
-	
-	@Column(name = "id_boleta", nullable = false)
 	private Boleta idBoleta; 
-	
-	@Column(name = "id_profesor", nullable = false)
 	private Profesor idProf;
-	
-	@Column(name = "id_cuenta", nullable = false)
 	private Cuenta idCuenta;
-
-	public Alumno() {
+	
+	public AlumnoBean() {
 		super();
 	}
 
-	public Alumno(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl, Boleta idBoleta,
-			Profesor idProf, Cuenta idCuenta) {
+	public AlumnoBean(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl,
+			Boleta idBoleta, Profesor idProf, Cuenta idCuenta) {
 		super();
 		this.idAlumno = idAlumno;
 		this.nombreAl = nombreAl;
@@ -129,7 +105,6 @@ public class Alumno {
 	public void setIdCuenta(Cuenta idCuenta) {
 		this.idCuenta = idCuenta;
 	}
-
 	
 	
 	
