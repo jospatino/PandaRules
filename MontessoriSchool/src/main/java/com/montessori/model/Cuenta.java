@@ -15,13 +15,12 @@ public class Cuenta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCuenta;
 	
-	@Column(name = "deuda")
+	@Column(name = "deuda", nullable = false)
 	private int deuda;
 	
-	@Column(name = "promBeca")
+	@Column(name = "promBeca", nullable = false)
 	private double promBeca;
-	
-	
+
 
 	public Cuenta() {
 		super();
@@ -55,6 +54,6 @@ public class Cuenta {
 		this.promBeca = promBeca;
 	}
 
-	
+
 
 }
