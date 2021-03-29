@@ -13,7 +13,6 @@ public class Cuenta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idCuenta")
 	private int idCuenta;
 	
 	@Column(name = "deuda")
@@ -22,8 +21,7 @@ public class Cuenta {
 	@Column(name = "promBeca")
 	private double promBeca;
 	
-	@Column(name = "idAlumno")
-	private Alumno alumno;
+	
 
 	public Cuenta() {
 		super();
@@ -57,12 +55,6 @@ public class Cuenta {
 		this.promBeca = promBeca;
 	}
 
-	public Alumno getAlumno() {
-		return alumno;
-	}
-
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
-	}
+	
 
 }
