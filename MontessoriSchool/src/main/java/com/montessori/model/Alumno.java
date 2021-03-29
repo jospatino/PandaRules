@@ -49,13 +49,6 @@ public class Alumno {
 	public Alumno(int idAlumno) {
 		super();
 		this.idAlumno = idAlumno;
-
-		this.nombreAl = nombreAl;
-		this.appAl = appAl;
-		this.apmAl = apmAl;
-		this.edadAl = edadAl;
-		this.sexoAl = sexoAl;
-
 	}
 
 	public int getIdAlumno() {
