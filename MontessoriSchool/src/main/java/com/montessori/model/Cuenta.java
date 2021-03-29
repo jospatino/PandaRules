@@ -13,8 +13,8 @@ public class Cuenta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Cuenta")
-	private int IdCuenta;
+	@Column(name = "idCuenta")
+	private int idCuenta;
 	
 	@Column(name = "deuda")
 	private int deuda;
@@ -27,16 +27,15 @@ public class Cuenta {
 	}
 
 	public Cuenta(int idCuenta) {
-		super();
-		IdCuenta = idCuenta;
+		this.idCuenta = idCuenta;
 	}
 
 	public int getIdCuenta() {
-		return IdCuenta;
+		return idCuenta;
 	}
 
 	public void setIdCuenta(int idCuenta) {
-		IdCuenta = idCuenta;
+		this.idCuenta = idCuenta;
 	}
 
 	public int getDeuda() {
