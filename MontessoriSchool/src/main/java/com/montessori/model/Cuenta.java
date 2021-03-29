@@ -13,6 +13,7 @@ public class Cuenta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_cuenta")
 	private int idCuenta;
 	
 	@Column(name = "deuda", nullable = false)
