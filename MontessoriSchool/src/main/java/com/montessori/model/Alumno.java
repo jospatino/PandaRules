@@ -13,7 +13,7 @@ public class Alumno {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idAlumno")
+	@Column(name = "id_alumno")
 	private int idAlumno;
 	
 	@Column(name = "nombre_alumno", length = 30, nullable = false)
@@ -31,14 +31,14 @@ public class Alumno {
 	@Column(name = "sexo_alumno", length = 5, nullable = false)
 	private String sexoAl;
 	
-	@Column(name = "id_boleta", nullable = false)
+	/*@Column(name = "id_boleta", nullable = false)
 	private Boleta idBoleta; 
 	
 	@Column(name = "id_profesor", nullable = false)
 	private Profesor idProf;
 	
 	@Column(name = "id_cuenta", nullable = false)
-	private Cuenta idCuenta;
+	private Cuenta idCuenta;*/
 
 	public Alumno() {
 		super();
@@ -53,9 +53,9 @@ public class Alumno {
 		this.apmAl = apmAl;
 		this.edadAl = edadAl;
 		this.sexoAl = sexoAl;
-		this.idBoleta = idBoleta;
-		this.idProf = idProf;
-		this.idCuenta = idCuenta;
+		//this.idBoleta = idBoleta;
+		//this.idProf = idProf;
+		//this.idCuenta = idCuenta;
 	}
 
 	public int getIdAlumno() {
@@ -106,7 +106,7 @@ public class Alumno {
 		this.sexoAl = sexoAl;
 	}
 
-	public Boleta getIdBoleta() {
+	/*public Boleta getIdBoleta() {
 		return idBoleta;
 	}
 
@@ -128,7 +128,7 @@ public class Alumno {
 
 	public void setIdCuenta(Cuenta idCuenta) {
 		this.idCuenta = idCuenta;
-	}
+	}*/
 
 	
 	
