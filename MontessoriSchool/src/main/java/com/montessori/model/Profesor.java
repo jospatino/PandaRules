@@ -13,7 +13,6 @@ public class Profesor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_prof")
 	private int idProf;
 	
 	@Column(name = "nom_prof", nullable = false, length = 20)
@@ -24,19 +23,20 @@ public class Profesor {
 	
 	@Column(name = "apm_prof", nullable = false, length = 15)
 	private String apmProf;
-	
-	@Column(name = "edad_prof", nullable = false)
+
+	@Column(name = "edad_profesor", nullable = false)
 	private int edad;
 	
 	@Column(name = "sexo_prof", nullable = false, length = 1)
 	private String sexoProf;
-	
-	@Column(name = "rfc_prof", nullable = false, length = 10)
+
+	@Column(name = "rfc_profesor", nullable = false, length = 10)
 	private String rfc;
 	
 	@Column(name = "sueldo_prof", nullable = false)
 	private int sueldoProf;
 	
+
 	
 	/*Contructores_Getters&Setters*/
 	
