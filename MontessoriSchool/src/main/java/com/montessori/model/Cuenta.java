@@ -19,8 +19,11 @@ public class Cuenta {
 	@Column(name = "deuda")
 	private int deuda;
 	
-	@Column(name = "deuda")
+	@Column(name = "promBeca")
 	private double promBeca;
+	
+	@Column(name = "idAlumno")
+	private Alumno alumno;
 
 	public Cuenta() {
 		super();
@@ -52,6 +55,14 @@ public class Cuenta {
 
 	public void setPromBeca(double promBeca) {
 		this.promBeca = promBeca;
+	}
+
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
 	}
 
 }
