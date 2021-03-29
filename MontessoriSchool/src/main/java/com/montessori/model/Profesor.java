@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Tb_Profesor")
+@Table(name = "tb_profesor")
 public class Profesor {
 	
 	@Id
@@ -19,7 +19,7 @@ public class Profesor {
 	@Column(name = "nom_prof", nullable = false, length = 20)
 	private String nom_prof;
 	
-	@Column(name = "app-prof", nullable = false, length = 15)
+	@Column(name = "app_prof", nullable = false, length = 15)
 	private String app_prof;
 	
 	@Column(name = "apm_prof", nullable = false, length = 15)
@@ -36,6 +36,7 @@ public class Profesor {
 	
 	@Column(name = "sueldo_prof", nullable = false)
 	private int sueldo_prof;
+	
 	
 	/*Contructores_Getters&Setters*/
 	
