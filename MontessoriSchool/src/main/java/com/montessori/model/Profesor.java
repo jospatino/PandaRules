@@ -17,25 +17,25 @@ public class Profesor {
 	private int idProf;
 	
 	@Column(name = "nom_prof", nullable = false, length = 20)
-	private String nom_prof;
+	private String nomProf;
 	
 	@Column(name = "app_prof", nullable = false, length = 15)
-	private String app_prof;
+	private String appProf;
 	
 	@Column(name = "apm_prof", nullable = false, length = 15)
-	private String apm_prof;
+	private String apmProf;
 	
 	@Column(name = "edad_prof", nullable = false)
 	private int edad;
 	
 	@Column(name = "sexo_prof", nullable = false, length = 1)
-	private String sexo_prof;
+	private String sexoProf;
 	
 	@Column(name = "rfc_prof", nullable = false, length = 10)
 	private String rfc;
 	
 	@Column(name = "sueldo_prof", nullable = false)
-	private int sueldo_prof;
+	private int sueldoProf;
 	
 	
 	/*Contructores_Getters&Setters*/
