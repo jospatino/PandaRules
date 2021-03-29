@@ -1,5 +1,6 @@
 package com.montessori.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,12 +13,18 @@ public class Boleta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int IdBoleta;
+	private int idBoleta;
+	@Column(name = "espanol")
 	private double espanol;
+	@Column(name = "matematicas")
 	private double matematicas;
+	@Column(name = "historia")
 	private double historia;
+	@Column(name = "asistencia")
 	private int asistencia;
+	@Column(name = "conducta")
 	private boolean conduca;
+	@Column(name = "calificacion")
 	private double calificacion;
 	
 	
@@ -26,7 +33,7 @@ public class Boleta {
 	public Boleta(int idBoleta, double espanol, double matematicas, double historia, int asistencia, boolean conduca,
 			double calificacion) {
 		super();
-		IdBoleta = idBoleta;
+		idBoleta = idBoleta;
 		this.espanol = espanol;
 		this.matematicas = matematicas;
 		this.historia = historia;
@@ -35,10 +42,10 @@ public class Boleta {
 		this.calificacion = calificacion;
 	}
 	public int getIdBoleta() {
-		return IdBoleta;
+		return idBoleta;
 	}
 	public void setIdBoleta(int idBoleta) {
-		IdBoleta = idBoleta;
+		idBoleta = idBoleta;
 	}
 	public double getEspanol() {
 		return espanol;
