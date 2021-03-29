@@ -16,10 +16,10 @@ public class Cuenta {
 	@Column(name = "idCuenta")
 	private int idCuenta;
 	
-	@Column(name = "deuda")
+	@Column(name = "deuda", nullable = false)
 	private int deuda;
 	
-	@Column(name = "promBeca")
+	@Column(name = "promBeca", nullable = false)
 	private double promBeca;
 	
 

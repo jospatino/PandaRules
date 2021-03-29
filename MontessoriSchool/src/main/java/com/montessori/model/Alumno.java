@@ -30,7 +30,7 @@ public class Alumno {
 	
 	@Column(name = "sexo_alumno", length = 5, nullable = false)
 	private String sexoAl;
-	
+
 	/*@Column(name = "id_boleta", nullable = false)
 	private Boleta idBoleta; 
 	
@@ -44,18 +44,9 @@ public class Alumno {
 		super();
 	}
 
-	public Alumno(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl, Boleta idBoleta,
-			Profesor idProf, Cuenta idCuenta) {
+	public Alumno(int idAlumno) {
 		super();
 		this.idAlumno = idAlumno;
-		this.nombreAl = nombreAl;
-		this.appAl = appAl;
-		this.apmAl = apmAl;
-		this.edadAl = edadAl;
-		this.sexoAl = sexoAl;
-		//this.idBoleta = idBoleta;
-		//this.idProf = idProf;
-		//this.idCuenta = idCuenta;
 	}
 
 	public int getIdAlumno() {
@@ -105,31 +96,7 @@ public class Alumno {
 	public void setSexoAl(String sexoAl) {
 		this.sexoAl = sexoAl;
 	}
-
-	/*public Boleta getIdBoleta() {
-		return idBoleta;
-	}
-
-	public void setIdBoleta(Boleta idBoleta) {
-		this.idBoleta = idBoleta;
-	}
-
-	public Profesor getIdProf() {
-		return idProf;
-	}
-
-	public void setIdProf(Profesor idProf) {
-		this.idProf = idProf;
-	}
-
-	public Cuenta getIdCuenta() {
-		return idCuenta;
-	}
-
-	public void setIdCuenta(Cuenta idCuenta) {
-		this.idCuenta = idCuenta;
-	}*/
-
+	
 	
 	
 	
