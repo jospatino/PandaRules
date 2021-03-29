@@ -1,7 +1,5 @@
 package com.montessori.bean;
 
-import javax.persistence.Column;
-
 public class ProfesorBean {
 	private int idProf;
 	private String nom_prof;

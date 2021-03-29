@@ -13,28 +13,28 @@ public class Profesor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_PROF")
+	@Column(name = "id_prof")
 	private int idProf;
 	
-	@Column(name = "NOM_PROF")
+	@Column(name = "nom_prof")
 	private String nom_prof;
 	
-	@Column(name = "APP_PROF")
+	@Column(name = "app-prof")
 	private String app_prof;
 	
-	@Column(name = "APM_PROF")
+	@Column(name = "apm_prof")
 	private String apm_prof;
 	
-	@Column(name = "EDAD_PROF")
+	@Column(name = "edad_prof")
 	private int edad;
 	
-	@Column(name = "SEX_PROF")
+	@Column(name = "sexo_prof")
 	private String sexo_prof;
 	
-	@Column(name = "RFC_PROF")
+	@Column(name = "rfc_prof")
 	private String rfc;
 	
-	@Column(name = "SUELDO_PROF")
+	@Column(name = "sueldo_prof")
 	private int sueldo_prof;
 	
 	/*Contructores_Getters&Setters*/
