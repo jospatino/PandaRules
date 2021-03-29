@@ -16,25 +16,25 @@ public class Profesor {
 	@Column(name = "id_prof")
 	private int idProf;
 	
-	@Column(name = "nom_prof")
+	@Column(name = "nom_prof", nullable = false, length = 20)
 	private String nom_prof;
 	
-	@Column(name = "app-prof")
+	@Column(name = "app-prof", nullable = false, length = 15)
 	private String app_prof;
 	
-	@Column(name = "apm_prof")
+	@Column(name = "apm_prof", nullable = false, length = 15)
 	private String apm_prof;
 	
-	@Column(name = "edad_prof")
+	@Column(name = "edad_prof", nullable = false)
 	private int edad;
 	
-	@Column(name = "sexo_prof")
+	@Column(name = "sexo_prof", nullable = false, length = 1)
 	private String sexo_prof;
 	
-	@Column(name = "rfc_prof")
+	@Column(name = "rfc_prof", nullable = false, length = 10)
 	private String rfc;
 	
-	@Column(name = "sueldo_prof")
+	@Column(name = "sueldo_prof", nullable = false)
 	private int sueldo_prof;
 	
 	/*Contructores_Getters&Setters*/
