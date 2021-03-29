@@ -13,6 +13,7 @@ public class Profesor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_prof")
 	private int idProf;
 	
 	@Column(name = "nom_prof", nullable = false, length = 20)
