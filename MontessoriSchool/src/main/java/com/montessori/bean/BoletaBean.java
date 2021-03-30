@@ -6,14 +6,14 @@ public class BoletaBean {
 	private double espanol;
 	private double matematicas;
 	private double historia;
-	private int asistencia;
+	private boolean asistencia;
 	private boolean conduca;
 	private double calificacion;
 	
 	
 	public BoletaBean() {
 	}
-	public BoletaBean(int idBoleta, double espanol, double matematicas, double historia, int asistencia, boolean conduca,
+	public BoletaBean(int idBoleta, double espanol, double matematicas, double historia, boolean asistencia, boolean conduca,
 			double calificacion) {
 		super();
 		IdBoleta = idBoleta;
@@ -48,10 +48,10 @@ public class BoletaBean {
 	public void setHistoria(double historia) {
 		this.historia = historia;
 	}
-	public int getAsistencia() {
+	public boolean getAsistencia() {
 		return asistencia;
 	}
-	public void setAsistencia(int asistencia) {
+	public void setAsistencia(boolean asistencia) {
 		this.asistencia = asistencia;
 	}
 	public boolean isConduca() {

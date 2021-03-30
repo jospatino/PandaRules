@@ -8,11 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="boleta")
+@Table(name="tb_boleta")
 public class Boleta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_boleta")
 	private int idBoleta;
 	@Column(name = "espanol")
 	private double espanol;
@@ -21,7 +22,7 @@ public class Boleta {
 	@Column(name = "historia")
 	private double historia;
 	@Column(name = "asistencia")
-	private int asistencia;
+	private boolean asistencia;
 	@Column(name = "conducta")
 	private boolean conduca;
 	@Column(name = "calificacion")
@@ -30,7 +31,7 @@ public class Boleta {
 	
 	public Boleta() {
 	}
-	public Boleta(int idBoleta, double espanol, double matematicas, double historia, int asistencia, boolean conduca,
+	public Boleta(int idBoleta, double espanol, double matematicas, double historia, boolean asistencia, boolean conduca,
 			double calificacion) {
 		super();
 		idBoleta = idBoleta;
@@ -65,10 +66,10 @@ public class Boleta {
 	public void setHistoria(double historia) {
 		this.historia = historia;
 	}
-	public int getAsistencia() {
+	public boolean getAsistencia() {
 		return asistencia;
 	}
-	public void setAsistencia(int asistencia) {
+	public void setAsistencia(boolean asistencia) {
 		this.asistencia = asistencia;
 	}
 	public boolean isConduca() {
