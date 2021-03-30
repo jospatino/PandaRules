@@ -3,14 +3,14 @@ package com.montessori.bean;
 public class CuentaBean {
 	
 	private int idCuenta;
-	private int deuda;
+	private double deuda;
 	private double promBeca;
 	
 	public CuentaBean() {
 		super();
 	}
 
-	public CuentaBean(int idCuenta, int deuda, double promBeca) {
+	public CuentaBean(int idCuenta, double deuda, double promBeca) {
 		super();
 		this.idCuenta = idCuenta;
 		this.deuda = deuda;
@@ -25,11 +25,11 @@ public class CuentaBean {
 		this.idCuenta = idCuenta;
 	}
 
-	public int getDeuda() {
+	public double getDeuda() {
 		return deuda;
 	}
 
-	public void setDeuda(int deuda) {
+	public void setDeuda(double deuda) {
 		this.deuda = deuda;
 	}
 

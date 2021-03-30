@@ -17,7 +17,7 @@ public class Cuenta {
 	private int idCuenta;
 	
 	@Column(name = "deuda", nullable = false)
-	private int deuda;
+	private double deuda;
 	
 	@Column(name = "promBeca", nullable = false)
 	private double promBeca;
@@ -39,11 +39,11 @@ public class Cuenta {
 		this.idCuenta = idCuenta;
 	}
 
-	public int getDeuda() {
+	public double getDeuda() {
 		return deuda;
 	}
 
-	public void setDeuda(int deuda) {
+	public void setDeuda(double deuda) {
 		this.deuda = deuda;
 	}
 
