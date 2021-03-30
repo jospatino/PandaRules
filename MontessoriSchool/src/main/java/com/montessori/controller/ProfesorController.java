@@ -44,7 +44,7 @@ public class ProfesorController {
 		return new ResponseEntity<>(this.profeService.mostrarProfesores(), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{IdProf}")
 	public ResponseEntity<Boolean> eliminarProfesor(@PathVariable Integer IdProf){
 		return new ResponseEntity<>(this.profeService.deleteProfesorById(IdProf), HttpStatus.OK);
 	}
