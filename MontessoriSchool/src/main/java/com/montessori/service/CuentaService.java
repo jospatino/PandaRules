@@ -10,6 +10,6 @@ public interface CuentaService {
 	public CuentaBean findByIdCuenta(Integer id);
 	public List<CuentaBean> findAllCuentas();
 	public boolean updateCuenta(CuentaBean cuentaBean);
-	public boolean deleteCuenta(CuentaBean cuentaBean);
+	public boolean deleteCuenta(Integer id);
 
 }

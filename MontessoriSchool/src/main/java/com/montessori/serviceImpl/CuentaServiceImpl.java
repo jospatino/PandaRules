@@ -67,8 +67,8 @@ public class CuentaServiceImpl implements CuentaService{
 	}
 
 	@Override
-	public boolean deleteCuenta(CuentaBean cuentaBean) {
-		Cuenta cuenta = this.cuentaRepo.findById(cuentaBean.getIdCuenta()).orElseThrow();
+	public boolean deleteCuenta(Integer id) {
+		Cuenta cuenta = this.cuentaRepo.findById(id).orElseThrow();
 		this.cuentaRepo.delete(cuenta);
 		return true;
 	}

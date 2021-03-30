@@ -43,8 +43,8 @@ public class CuentaController{
 		return new ResponseEntity<>(this.cuentaService.updateCuenta(cuentaBean), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete")
-	public ResponseEntity<Boolean> eliminarCuenta(@RequestBody CuentaBean cuentaBean){
-		return new ResponseEntity<>(this.cuentaService.deleteCuenta(cuentaBean), HttpStatus.OK);
+	@DeleteMapping("/delete/{idCuenta}")
+	public ResponseEntity<Boolean> eliminarCuenta(@PathVariable("idCuenta") Integer idCuenta){
+		return new ResponseEntity<>(this.cuentaService.deleteCuenta(idCuenta), HttpStatus.OK);
 	}
 }
