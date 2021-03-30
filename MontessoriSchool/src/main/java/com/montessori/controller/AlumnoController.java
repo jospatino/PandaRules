@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.montessori.bean.AlumnoBean;
+import com.montessori.bean.AlumnoBeanId;
 import com.montessori.service.AlumnoService;
 
 @RestController
@@ -28,9 +29,14 @@ public class AlumnoController {
 		return new ResponseEntity<>(this.alumnoService.saveAlumno(alumnoBean), HttpStatus.OK);
 	}
 	
+	@PostMapping("/saveAll")
+	public ResponseEntity<Integer> guardarAlumnoId(@RequestBody AlumnoBeanId alumnoBeanId){
+		return new ResponseEntity<>(this.alumnoService.saveAlumnoAll(alumnoBeanId), HttpStatus.OK);
+	}
+	
 	@PutMapping("/update")
-	public ResponseEntity<Boolean> actualizarAlumno(@RequestBody AlumnoBean alumnoBean){
-		return new ResponseEntity<>(this.alumnoService.updateAlumno(alumnoBean), HttpStatus.OK);
+	public ResponseEntity<Boolean> actualizarAlumno(@RequestBody AlumnoBeanId alumnoBeanId){
+		return new ResponseEntity<>(this.alumnoService.updateAlumno(alumnoBeanId), HttpStatus.OK);
 	}
 	
 	@GetMapping("/findById/{idAlumno}")

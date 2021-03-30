@@ -9,11 +9,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.montessori.bean.AlumnoBean;
+import com.montessori.bean.AlumnoBeanId;
 import com.montessori.bean.BoletaBean;
 import com.montessori.bean.CuentaBean;
 import com.montessori.bean.ProfesorBean;
 import com.montessori.model.Alumno;
+import com.montessori.model.Boleta;
+import com.montessori.model.Cuenta;
+import com.montessori.model.Profesor;
 import com.montessori.repository.AlumnoRepository;
+import com.montessori.repository.BoletaRepository;
+import com.montessori.repository.CuentaRepository;
+import com.montessori.repository.ProfesorRepository;
 import com.montessori.service.AlumnoService;
 
 @Service
@@ -22,28 +29,78 @@ public class AlumnoServiceImpl implements AlumnoService{
 	
 	@Autowired
 	AlumnoRepository alumnoRepo;
+	
+	@Autowired
+	ProfesorRepository profesorRepo;
+	
+	@Autowired
+	BoletaRepository boletaRepo;
+	
+	@Autowired
+	CuentaRepository cuentaRepo;
 
 	@Override
 	public Integer saveAlumno(AlumnoBean alumnoBean) {
 		
 		Alumno alumno = new Alumno();
+
 		
 		alumno.setNombreAl(alumnoBean.getNombreAl());
 		alumno.setAppAl(alumnoBean.getAppAl());
 		alumno.setApmAl(alumnoBean.getApmAl());
 		alumno.setEdadAl(alumnoBean.getEdadAl());
 		alumno.setSexoAl(alumnoBean.getSexoAl());
+
 		
 		alumnoRepo.save(alumno);
+
+		
+		return alumno.getIdAlumno();
+	}
+	
+	@Override
+	public Integer saveAlumnoAll(AlumnoBeanId alumnoBeanId) {
+		
+		Alumno alumno = new Alumno();
+		
+		Profesor profesor = this.profesorRepo.findById(alumnoBeanId.getIdProf()).orElseThrow();
+		
+		Boleta boleta = this.boletaRepo.findById(alumnoBeanId.getIdBoleta()).orElseThrow();
+		
+		Cuenta cuenta = this.cuentaRepo.findById(alumnoBeanId.getIdCuenta()).orElseThrow();
+		
+		alumno.setNombreAl(alumnoBeanId.getNombreAl());
+		alumno.setAppAl(alumnoBeanId.getAppAl());
+		alumno.setApmAl(alumnoBeanId.getApmAl());
+		alumno.setEdadAl(alumnoBeanId.getEdadAl());
+		alumno.setSexoAl(alumnoBeanId.getSexoAl());
+	
+		alumno.setProfesor(profesor);
+		alumno.setCuenta(cuenta);
+		alumno.setBoleta(boleta);
+
+		alumnoRepo.save(alumno);
+
 		
 		return alumno.getIdAlumno();
 	}
 
 	@Override
-	public boolean updateAlumno(AlumnoBean alumnoBean) {
+	public boolean updateAlumno(AlumnoBeanId alumnoBeanId) {
 		
-		Alumno alumno = this.alumnoRepo.findById(alumnoBean.getIdAlumno()).orElseThrow();
-		BeanUtils.copyProperties(alumnoBean, alumno);
+		Alumno alumno = this.alumnoRepo.findById(alumnoBeanId.getIdAlumno()).orElseThrow();
+		
+        Profesor profesor = this.profesorRepo.findById(alumnoBeanId.getIdProf()).orElseThrow();
+		
+		Boleta boleta = this.boletaRepo.findById(alumnoBeanId.getIdBoleta()).orElseThrow();
+		
+		Cuenta cuenta = this.cuentaRepo.findById(alumnoBeanId.getIdCuenta()).orElseThrow();
+		
+		BeanUtils.copyProperties(alumnoBeanId, alumno);
+		alumno.setProfesor(profesor);
+		alumno.setBoleta(boleta);
+		alumno.setCuenta(cuenta);
+		
 		this.alumnoRepo.save(alumno);
 		return true;
 	}
