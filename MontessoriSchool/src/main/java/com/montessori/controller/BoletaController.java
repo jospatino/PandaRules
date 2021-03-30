@@ -24,27 +24,27 @@ public class BoletaController {
 	@Autowired
 	BoletaService boletaService;
 	
-	@GetMapping
+	@GetMapping("/findAll")
 	public ResponseEntity<List<BoletaBean>> findAllBoleta(){
 		return new ResponseEntity<>(this.boletaService.findAllBoleta(),HttpStatus.OK);
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public ResponseEntity<Integer> saveBoleta(@RequestBody BoletaBean boletaBean){
 		return new ResponseEntity<>(this.boletaService.saveBoleta(boletaBean),HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/findById/{id}")
 	public ResponseEntity<BoletaBean> findBoletaById(@PathVariable int id){
 		return new ResponseEntity<>(this.boletaService.findBoletaById(id),HttpStatus.OK);
 	}
 	
-	@PutMapping
+	@PutMapping("/update")
 	public ResponseEntity<Boolean> updateBoleta(@RequestBody BoletaBean boletaBean){
 		return new ResponseEntity<>(this.boletaService.updateBoleta(boletaBean),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> deleteBoleta(@PathVariable int id){
 		return new ResponseEntity<>(this.boletaService.deleteBoleta(id),HttpStatus.OK);
 	}
