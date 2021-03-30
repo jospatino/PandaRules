@@ -25,7 +25,7 @@ public class Profesor {
 	@Column(name = "apm_prof", nullable = false, length = 15)
 	private String apmProf;
 
-	@Column(name = "edad_profesor", nullable = false)
+	@Column(name = "edad_prof", nullable = false)
 	private int edad;
 	
 	@Column(name = "sexo_prof", nullable = false, length = 1)
