@@ -1,10 +1,13 @@
 package com.montessori.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,7 +40,8 @@ public class Profesor {
 	@Column(name = "sueldo_prof", nullable = false)
 	private int sueldoProf;
 	
-
+	@OneToMany(mappedBy = "profesor")
+	private List<Alumno> alumno;
 	
 	/*Contructores_Getters&Setters*/
 	
@@ -111,6 +115,14 @@ public class Profesor {
 
 	public void setIdProf(int idProf) {
 		this.idProf = idProf;
+	}
+
+	public List<Alumno> getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(List<Alumno> alumno) {
+		this.alumno = alumno;
 	}
 
 	

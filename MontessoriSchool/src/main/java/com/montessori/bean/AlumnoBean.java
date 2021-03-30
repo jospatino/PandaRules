@@ -1,9 +1,5 @@
 package com.montessori.bean;
 
-import com.montessori.model.Boleta;
-import com.montessori.model.Cuenta;
-import com.montessori.model.Profesor;
-
 public class AlumnoBean {
 
 	private int idAlumno;
@@ -12,16 +8,16 @@ public class AlumnoBean {
 	private String apmAl;
 	private int edadAl;
 	private String sexoAl;
-	private Boleta idBoleta; 
-	private Profesor idProf;
-	private Cuenta idCuenta;
+	private BoletaBean idBoleta; 
+	private ProfesorBean idProf;
+	private CuentaBean idCuenta;
 	
 	public AlumnoBean() {
 		super();
 	}
 
 	public AlumnoBean(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl,
-			Boleta idBoleta, Profesor idProf, Cuenta idCuenta) {
+			BoletaBean idBoleta, ProfesorBean idProf, CuentaBean idCuenta) {
 		super();
 		this.idAlumno = idAlumno;
 		this.nombreAl = nombreAl;
@@ -82,29 +78,32 @@ public class AlumnoBean {
 		this.sexoAl = sexoAl;
 	}
 
-	public Boleta getIdBoleta() {
+	public BoletaBean getIdBoleta() {
 		return idBoleta;
 	}
 
-	public void setIdBoleta(Boleta idBoleta) {
+	public void setIdBoleta(BoletaBean idBoleta) {
 		this.idBoleta = idBoleta;
 	}
 
-	public Profesor getIdProf() {
+	public ProfesorBean getIdProf() {
 		return idProf;
 	}
 
-	public void setIdProf(Profesor idProf) {
+	public void setIdProf(ProfesorBean idProf) {
 		this.idProf = idProf;
 	}
 
-	public Cuenta getIdCuenta() {
+	public CuentaBean getIdCuenta() {
 		return idCuenta;
 	}
 
-	public void setIdCuenta(Cuenta idCuenta) {
+	public void setIdCuenta(CuentaBean idCuenta) {
 		this.idCuenta = idCuenta;
 	}
+	
+	
+	
 	
 	
 	

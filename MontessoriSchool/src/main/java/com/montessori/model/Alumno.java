@@ -1,10 +1,14 @@
 package com.montessori.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,16 +35,18 @@ public class Alumno {
 	@Column(name = "sexo_alumno", length = 5, nullable = false)
 	private String sexoAl;
 
-
-	/*@Column(name = "id_boleta", nullable = false)
-	private Boleta idBoleta; 
+	@ManyToOne 
+	@JoinColumn(name = "idProf")
+	private Profesor profesor;
 	
-	@Column(name = "id_profesor", nullable = false)
-	private Profesor idProf;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idCuenta")
+	private Cuenta cuenta;
 	
-	@Column(name = "id_cuenta", nullable = false)
-	private Cuenta idCuenta;*/
-
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idBoleta")
+	private Boleta boleta;
+	
 
 	public Alumno() {
 		super();
@@ -97,6 +103,30 @@ public class Alumno {
 
 	public void setSexoAl(String sexoAl) {
 		this.sexoAl = sexoAl;
+	}
+
+	public Profesor getProfesor() {
+		return profesor;
+	}
+
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
+	}
+
+	public Cuenta getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public Boleta getBoleta() {
+		return boleta;
+	}
+
+	public void setBoleta(Boleta boleta) {
+		this.boleta = boleta;
 	}
 
 	

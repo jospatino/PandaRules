@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,19 +16,27 @@ public class Boleta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_boleta")
 	private int idBoleta;
+	
 	@Column(name = "espanol")
 	private double espanol;
+	
 	@Column(name = "matematicas")
 	private double matematicas;
+	
 	@Column(name = "historia")
 	private double historia;
+	
 	@Column(name = "asistencia")
 	private boolean asistencia;
+	
 	@Column(name = "conducta")
 	private boolean conduca;
+	
 	@Column(name = "calificacion")
 	private double calificacion;
 	
+	@OneToOne(mappedBy = "boleta")
+	private Alumno alumno;
 	
 	public Boleta() {
 	}
@@ -84,6 +93,13 @@ public class Boleta {
 	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
+	public Alumno getAlumno() {
+		return alumno;
+	}
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+	
 	
 	
 }

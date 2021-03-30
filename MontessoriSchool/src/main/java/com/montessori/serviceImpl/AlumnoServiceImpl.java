@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.montessori.bean.AlumnoBean;
+import com.montessori.bean.BoletaBean;
+import com.montessori.bean.CuentaBean;
+import com.montessori.bean.ProfesorBean;
 import com.montessori.model.Alumno;
 import com.montessori.repository.AlumnoRepository;
 import com.montessori.service.AlumnoService;
@@ -50,8 +53,20 @@ public class AlumnoServiceImpl implements AlumnoService{
 		
 		Alumno alumno = this.alumnoRepo.findById(id).orElseThrow();
 		AlumnoBean alumnoBean = new AlumnoBean();
-		BeanUtils.copyProperties(alumno, alumnoBean);
+		ProfesorBean profesorBean = new ProfesorBean();
 		
+		BeanUtils.copyProperties(alumno.getProfesor(), profesorBean);
+		
+		BoletaBean boletaBean = new BoletaBean();
+		BeanUtils.copyProperties(alumno.getBoleta(), boletaBean);
+		
+		CuentaBean cuentaBean = new CuentaBean();
+		BeanUtils.copyProperties(alumno.getCuenta(), cuentaBean);
+		
+		BeanUtils.copyProperties(alumno, alumnoBean);
+		alumnoBean.setIdProf(profesorBean);
+		alumnoBean.setIdBoleta(boletaBean);
+		alumnoBean.setIdCuenta(cuentaBean);
 		
 		return alumnoBean;
 	}
@@ -64,7 +79,21 @@ public class AlumnoServiceImpl implements AlumnoService{
 		
 		for(Alumno alumno : alumnoList) {
 			AlumnoBean alumnoBean = new AlumnoBean();
+			ProfesorBean profesorBean = new ProfesorBean();
+			
+			BeanUtils.copyProperties(alumno.getProfesor(), profesorBean);
+			
+			BoletaBean boletaBean = new BoletaBean();
+			BeanUtils.copyProperties(alumno.getBoleta(), boletaBean);
+			
+			CuentaBean cuentaBean = new CuentaBean();
+			BeanUtils.copyProperties(alumno.getCuenta(), cuentaBean);
+			
 			BeanUtils.copyProperties(alumno, alumnoBean);
+			alumnoBean.setIdProf(profesorBean);
+			alumnoBean.setIdBoleta(boletaBean);
+			alumnoBean.setIdCuenta(cuentaBean);
+			
 			alumnoBeanList.add(alumnoBean);
 		}
 		

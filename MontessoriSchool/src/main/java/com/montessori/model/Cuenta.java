@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +23,9 @@ public class Cuenta {
 	@Column(name = "promBeca", nullable = false)
 	private double promBeca;
 
-
+	@OneToOne(mappedBy = "cuenta")
+	private Alumno alumno;
+	
 	public Cuenta() {
 		super();
 	}
@@ -55,6 +58,14 @@ public class Cuenta {
 		this.promBeca = promBeca;
 	}
 
+	public Alumno getAlumno() {
+		return alumno;
+	}
 
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+
+	
 
 }
