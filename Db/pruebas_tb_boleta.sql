@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: montessorischool
+-- Host: 127.0.0.1    Database: pruebas
 -- ------------------------------------------------------
 -- Server version	8.0.23
 
@@ -31,7 +31,7 @@ CREATE TABLE `tb_boleta` (
   `historia` double DEFAULT NULL,
   `matematicas` double DEFAULT NULL,
   PRIMARY KEY (`id_boleta`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `tb_boleta` (
 
 LOCK TABLES `tb_boleta` WRITE;
 /*!40000 ALTER TABLE `tb_boleta` DISABLE KEYS */;
-INSERT INTO `tb_boleta` VALUES (1,_binary '',9.5,_binary '',9.5,6.5,7.5),(2,_binary '\0',7.5,_binary '',6.8,7.5,8.5),(3,_binary '',8.5,_binary '\0',8.8,9.5,8.3),(4,_binary '\0',6.5,_binary '\0',7.8,6.5,6.3),(5,_binary '',7.5,_binary '\0',7.8,8.5,9.3);
+INSERT INTO `tb_boleta` VALUES (1,_binary '',9.5,_binary '',9.5,6.5,7.5),(2,_binary '\0',7.5,_binary '\0',6.8,7.5,8.5),(3,_binary '\0',9,_binary '',9,9,9),(7,_binary '',7.5,_binary '\0',6.8,7.5,8.5),(5,_binary '',7.5,_binary '\0',7.8,8.5,9.3),(8,_binary '\0',7.5,_binary '\0',6.8,7.5,8.5);
 /*!40000 ALTER TABLE `tb_boleta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-30 11:25:45
+-- Dump completed on 2021-03-30 13:52:54

@@ -53,4 +53,14 @@ public class AlumnoController {
 	public ResponseEntity<Boolean> eliminarPorId(@PathVariable("idAlumno") Integer idAlumno){
 		return new ResponseEntity<>(this.alumnoService.deleteAlumno(idAlumno), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findAlumnosMajaderos/{conducta}")
+	public ResponseEntity<List<AlumnoBeanId>> alumnosMajaderos(@PathVariable("conducta") Integer conducta){
+		return new ResponseEntity<>(this.alumnoService.alumnosMajaderos(conducta), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAlumnosPorEdad/{edad1}/{edad2}")
+	public ResponseEntity<List<AlumnoBeanId>> alumnosPorEdad(@PathVariable("edad1") Integer edad1, @PathVariable("edad2") Integer edad2){
+		return new ResponseEntity<>(this.alumnoService.alumnosPorEdad(edad1, edad2), HttpStatus.OK);
+	}
 }

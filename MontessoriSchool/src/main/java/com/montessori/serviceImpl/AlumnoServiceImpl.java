@@ -167,4 +167,38 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return true;
 	}
 
+	@Override
+	public List<AlumnoBeanId> alumnosMajaderos(int conducta) {
+		List<Alumno> alumnoList = this.alumnoRepo.findAlumnosMajaderos(conducta);
+		List<AlumnoBeanId> alumnoBeanList = new ArrayList<AlumnoBeanId>();
+		
+		for(Alumno alumno : alumnoList) {
+			AlumnoBeanId alumnoBean = new AlumnoBeanId();
+			BeanUtils.copyProperties(alumno, alumnoBean);
+			alumnoBean.setIdBoleta(alumno.getBoleta().getIdBoleta());
+			alumnoBean.setIdCuenta(alumno.getCuenta().getIdCuenta());
+			alumnoBean.setIdProf(alumno.getProfesor().getIdProf());
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		return alumnoBeanList;
+ 	}
+
+	@Override
+	public List<AlumnoBeanId> alumnosPorEdad(int edad1, int edad2) {
+		List<Alumno> alumnoList = this.alumnoRepo.findAlumnosPorEdad(edad1, edad2);
+		List<AlumnoBeanId> alumnoBeanList = new ArrayList<AlumnoBeanId>();
+		
+		for(Alumno alumno : alumnoList) {
+			AlumnoBeanId alumnoBean = new AlumnoBeanId();
+			BeanUtils.copyProperties(alumno, alumnoBean);
+			alumnoBean.setIdBoleta(alumno.getBoleta().getIdBoleta());
+			alumnoBean.setIdCuenta(alumno.getCuenta().getIdCuenta());
+			alumnoBean.setIdProf(alumno.getProfesor().getIdProf());
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		return alumnoBeanList;
+ 	}
+
 }

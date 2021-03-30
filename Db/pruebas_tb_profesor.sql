@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: montessorischool
+-- Host: 127.0.0.1    Database: pruebas
 -- ------------------------------------------------------
 -- Server version	8.0.23
 
@@ -32,7 +32,7 @@ CREATE TABLE `tb_profesor` (
   `sexo_prof` varchar(1) NOT NULL,
   `sueldo_prof` int NOT NULL,
   PRIMARY KEY (`id_prof`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `tb_profesor` (
 
 LOCK TABLES `tb_profesor` WRITE;
 /*!40000 ALTER TABLE `tb_profesor` DISABLE KEYS */;
-INSERT INTO `tb_profesor` VALUES (1,'Dominguez','Perez',35,'Alejandro','PRDG805690','M',25000),(2,'Hernandez','Dominguez',45,'Rafael','DOHR280194','M',20000),(3,'Urizar','Fajardo',30,'Victor','FAUV960303','M',30000),(4,'Lopez','Sanchez',28,'Erika','SALE921028','F',32000),(5,'Ortiz','Ignacio',28,'Mayrani','IGOM950928','F',32000);
+INSERT INTO `tb_profesor` VALUES (1,'Dominguez','Perez',35,'Alejandro','PRDG805690','M',25000),(2,'Hernandez','Dominguez',40,'Jaime','DOHR280194','M',20000),(3,'Urizar','Fajardo',30,'Victor','FAUV960303','M',30000),(4,'Lopez','Sanchez',28,'Erika','SALE921028','F',32000),(5,'Ortiz','Ignacio',28,'Mayrani','IGOM950928','F',32000),(7,'Patinp','Solis',24,'Jose','jewncwkjnc','M',1);
 /*!40000 ALTER TABLE `tb_profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-30 11:25:44
+-- Dump completed on 2021-03-30 13:52:55
