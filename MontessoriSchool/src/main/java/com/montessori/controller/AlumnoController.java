@@ -63,4 +63,10 @@ public class AlumnoController {
 	public ResponseEntity<List<AlumnoBeanId>> alumnosPorEdad(@PathVariable("edad1") Integer edad1, @PathVariable("edad2") Integer edad2){
 		return new ResponseEntity<>(this.alumnoService.alumnosPorEdad(edad1, edad2), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findAlumosPorProm/{promedio}")
+	public ResponseEntity<List<AlumnoBeanId>> alumnosPorPromedio(@PathVariable("promedio") Double promedio){
+		return new ResponseEntity<>(this.alumnoService.alumnosPorPromedio(promedio), HttpStatus.OK);
+	}
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
 import com.montessori.bean.ProfesorSueldoBean;
 import com.montessori.model.Profesor;
@@ -97,7 +98,14 @@ public class ProfesorServiceImpl implements ProfesorService{
 	public ProfesorSueldoBean sueldoProfesor(Integer id) {
 		Profesor profesor = this.profesorRepo.findById(id).orElseThrow();
 		ProfesorSueldoBean profesorSueldoBean = new ProfesorSueldoBean(profesor.getSueldoProf());
-		return profesorSueldoBean;
+		return profesorSueldoBean;	
+	}
+
+	@Override
+	public NominaTotalProfesores nominaTotalProfesores() {
+		NominaTotalProfesores nomina = new NominaTotalProfesores();
+		nomina.setNominaTotal(this.profesorRepo.nominaTotal());
+		return nomina;
 	}
 
 }
