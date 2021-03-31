@@ -39,6 +39,10 @@ public class Boleta {
 	private Alumno alumno;
 	
 	public Boleta() {
+		
+	}
+	public Boleta(int idBoleta) {
+		idBoleta = idBoleta;
 	}
 	public Boleta(int idBoleta, double espanol, double matematicas, double historia, boolean asistencia, boolean conduca,
 			double calificacion) {
@@ -98,8 +102,5 @@ public class Boleta {
 	}
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
-	}
-	
-	
-	
+	}	
 }

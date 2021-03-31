@@ -2,6 +2,7 @@ package com.montessori.service;
 
 import java.util.List;
 
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 
@@ -15,5 +16,9 @@ public interface AlumnoService {
 	public boolean deleteAlumno (Integer idAlumno); //Delete object
 	public List<AlumnoBeanId> alumnosMajaderos(int conducta);
 	public List<AlumnoBeanId> alumnosPorEdad(int edad1, int edad2);
+	public List<AlumnoBeanId> alumnosPorPromedio(double promedio);
+	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos);
+	public boolean abonoeuda(AbonarDeudaAlumnoBean abonoDeuda);
+
 	public List<AlumnoBean> findAllAlumnosRep();
 }
