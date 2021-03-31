@@ -16,4 +16,8 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer>{
 	
 	@Query(value = "select * from tb_alumno where edad_alumno = :edad1 or edad_alumno = :edad2", nativeQuery = true)
 	List<Alumno> findAlumnosPorEdad(int edad1, int edad2);
+	
+	@Query(value = "SELECT * FROM tb_alumno WHERE id_cuenta IN (SELECT id_cuenta FROM cuenta WHERE prom_beca = :promedio)", nativeQuery = true)
+	List<Alumno> findAlumnosPorPromedio(double promedio);
+			
 }
