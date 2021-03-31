@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 import com.montessori.bean.BoletaBean;
@@ -226,6 +228,16 @@ public class AlumnoServiceImpl implements AlumnoService{
 		}
 		return true;
 	}
+
+	@Override
+	public boolean  abonoeuda(AbonarDeudaAlumnoBean abonoDeuda) {
+		Alumno alumno= this.alumnoRepo.findById(abonoDeuda.getIdAlumno()).orElseThrow();
+		alumno.getCuenta().setDeuda(alumno.getCuenta().getDeuda()-abonoDeuda.getAbono());
+		this.alumnoRepo.save(alumno);
+		return true;
+	}
+	
+	
 
 
 

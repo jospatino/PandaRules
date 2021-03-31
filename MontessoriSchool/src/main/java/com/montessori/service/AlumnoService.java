@@ -2,6 +2,9 @@ package com.montessori.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 
@@ -18,5 +21,6 @@ public interface AlumnoService {
 
 	public List<AlumnoBeanId> alumnosPorPromedio(double promedio);
 	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos);
+	public boolean abonoeuda(AbonarDeudaAlumnoBean abonoDeuda);
 
 }

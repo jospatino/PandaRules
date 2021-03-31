@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 import com.montessori.service.AlumnoService;
@@ -72,6 +73,11 @@ public class AlumnoController {
 	@PutMapping("/deleteList")
 	public ResponseEntity<Boolean> eliminaListaAlumnos(@RequestBody List<AlumnoBeanId> listAlumnos){
 		return new ResponseEntity<>(this.alumnoService.deleteAllList(listAlumnos),HttpStatus.OK);
+	}
+	
+	@PutMapping("/abonoDeuda")
+	public ResponseEntity<?> abonoDeuda(@RequestBody AbonarDeudaAlumnoBean abonoDeoudaAlumno){
+		return new ResponseEntity<>(this.alumnoService.abonoeuda(abonoDeoudaAlumno),HttpStatus.OK);
 	}
 
 }
