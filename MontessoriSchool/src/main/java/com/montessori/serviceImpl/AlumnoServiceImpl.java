@@ -292,18 +292,6 @@ public class AlumnoServiceImpl implements AlumnoService{
 			}//EndIf
 				
 		}//EndFor
-		
-	/*	
-		for (Alumno alumno : alumnoList) {
-			AlumnoPromBean alumnoBean = new AlumnoPromBean();
-			
-			BeanUtils.copyProperties(alumno, alumnoBean);
-			//alumno.setBoleta(new Boleta(alumnoBean.getIdBoleta().getIdBoleta()));
-			alumnoBean.setCalificacion(alumno.getBoleta().getCalificacion());
-			
-			alumnoBeanList.add(alumnoBean);
-		}
-	*/	
 		return alumnoBeanList;
 	}
 }
