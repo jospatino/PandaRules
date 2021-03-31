@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
 import com.montessori.service.ProfesorService;
 
@@ -47,6 +48,11 @@ public class ProfesorController {
 	@DeleteMapping("/delete/{IdProf}")
 	public ResponseEntity<Boolean> eliminarProfesor(@PathVariable("IdProf") Integer IdProf){
 		return new ResponseEntity<>(this.profeService.deleteProfesorById(IdProf), HttpStatus.OK);
+	}
+	
+	@GetMapping("/nominaTotal")
+	public ResponseEntity<NominaTotalProfesores> nominaTotal(){
+		return new ResponseEntity<>(this.profeService.nominaTotalProfesores(),HttpStatus.OK);
 	}
 
 }

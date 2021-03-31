@@ -2,6 +2,7 @@ package com.montessori.service;
 
 import java.util.List;
 
+import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
 
 public interface ProfesorService {
@@ -10,4 +11,5 @@ public interface ProfesorService {
 	public ProfesorBean findProfesorById(Integer idProf);
 	public List<ProfesorBean> mostrarProfesores();
 	public boolean deleteProfesorById(Integer idProf);
+	public NominaTotalProfesores nominaTotalProfesores();
 }

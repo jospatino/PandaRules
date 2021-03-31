@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
 import com.montessori.model.Profesor;
 import com.montessori.repository.ProfesorRepository;
@@ -90,6 +91,13 @@ public class ProfesorServiceImpl implements ProfesorService{
 		profesorRepo.delete(prof);
 		
 		return true;
+	}
+
+	@Override
+	public NominaTotalProfesores nominaTotalProfesores() {
+		NominaTotalProfesores nomina = new NominaTotalProfesores();
+		nomina.setNominaTotal(this.profesorRepo.nominaTotal());
+		return nomina;
 	}
 
 }
