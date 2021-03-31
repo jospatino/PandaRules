@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.montessori.bean.ProfesorBean;
+import com.montessori.bean.ProfesorSueldoBean;
 import com.montessori.service.ProfesorService;
 
 @RequestMapping("/profesor")
@@ -47,6 +48,12 @@ public class ProfesorController {
 	@DeleteMapping("/delete/{IdProf}")
 	public ResponseEntity<Boolean> eliminarProfesor(@PathVariable("IdProf") Integer IdProf){
 		return new ResponseEntity<>(this.profeService.deleteProfesorById(IdProf), HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/findProfesorSueldoById/{IdProf}")
+	public ResponseEntity<ProfesorSueldoBean> findProfesorSueldoById(@PathVariable("IdProf") Integer IdProf){
+		return new ResponseEntity<>(this.profeService.sueldoProfesor(IdProf), HttpStatus.OK);
 	}
 
 }
