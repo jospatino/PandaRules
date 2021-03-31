@@ -218,6 +218,15 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return alumnoBeanList;
 	}
 
+	@Override
+	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos) {
+		for(AlumnoBeanId alumnoBI:listAlumnos) {
+			Alumno alumno= this.alumnoRepo.findById(alumnoBI.getIdAlumno()).orElseThrow();
+			this.alumnoRepo.deleteById(alumno.getIdAlumno());
+		}
+		return true;
+	}
+
 
 
 }

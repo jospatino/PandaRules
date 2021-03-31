@@ -68,5 +68,10 @@ public class AlumnoController {
 	public ResponseEntity<List<AlumnoBeanId>> alumnosPorPromedio(@PathVariable("promedio") Double promedio){
 		return new ResponseEntity<>(this.alumnoService.alumnosPorPromedio(promedio), HttpStatus.OK);
 	}
+	
+	@PutMapping("/deleteList")
+	public ResponseEntity<Boolean> eliminaListaAlumnos(@RequestBody List<AlumnoBeanId> listAlumnos){
+		return new ResponseEntity<>(this.alumnoService.deleteAllList(listAlumnos),HttpStatus.OK);
+	}
 
 }

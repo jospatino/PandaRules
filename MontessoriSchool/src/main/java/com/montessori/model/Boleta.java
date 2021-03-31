@@ -102,8 +102,5 @@ public class Boleta {
 	}
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
-	}
-	
-	
-	
+	}	
 }

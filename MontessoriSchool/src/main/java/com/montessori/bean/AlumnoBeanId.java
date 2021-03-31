@@ -102,8 +102,4 @@ public class AlumnoBeanId {
 		this.idCuenta = idCuenta;
 	}
 
-	
-	
-	
-	
 }
