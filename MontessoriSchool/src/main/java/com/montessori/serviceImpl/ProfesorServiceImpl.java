@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
+import com.montessori.bean.ProfesorSueldoBean;
 import com.montessori.model.Profesor;
 import com.montessori.repository.ProfesorRepository;
 import com.montessori.service.ProfesorService;
@@ -91,6 +92,13 @@ public class ProfesorServiceImpl implements ProfesorService{
 		profesorRepo.delete(prof);
 		
 		return true;
+	}
+
+	@Override
+	public ProfesorSueldoBean sueldoProfesor(Integer id) {
+		Profesor profesor = this.profesorRepo.findById(id).orElseThrow();
+		ProfesorSueldoBean profesorSueldoBean = new ProfesorSueldoBean(profesor.getSueldoProf());
+		return profesorSueldoBean;	
 	}
 
 	@Override

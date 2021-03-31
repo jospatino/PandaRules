@@ -15,6 +15,7 @@ public interface AlumnoService {
 	public boolean deleteAlumno (Integer idAlumno); //Delete object
 	public List<AlumnoBeanId> alumnosMajaderos(int conducta);
 	public List<AlumnoBeanId> alumnosPorEdad(int edad1, int edad2);
+
 	public List<AlumnoBeanId> alumnosPorPromedio(double promedio);
 	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos);
 
