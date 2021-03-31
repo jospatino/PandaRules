@@ -16,4 +16,7 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer>{
 	
 	@Query(value = "select * from tb_alumno where edad_alumno = :edad1 or edad_alumno = :edad2", nativeQuery = true)
 	List<Alumno> findAlumnosPorEdad(int edad1, int edad2);
+	
+	@Query(value = "select tb_alumno.id_alumno, tb_alumno.nombre_alumno, tb_alumno.app_alumno, tb_alumno.apm_alumno, tb_alumno.edad_alumno, tb_boleta.calificacion from tb_alumno inner join tb_boleta on tb_alumno.id_boleta = tb_boleta.id_boleta where tb_boleta.calificacion <= 6;", nativeQuery = true)
+	List<Alumno> findAllAlumnosRep();
 }

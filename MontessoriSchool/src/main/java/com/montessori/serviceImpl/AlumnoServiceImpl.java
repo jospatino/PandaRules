@@ -201,4 +201,21 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return alumnoBeanList;
  	}
 
+	@Override
+	public List<AlumnoBean> findAllAlumnosRep() {
+		List<Alumno> alumnoList = this.alumnoRepo.findAllAlumnosRep();
+		List<AlumnoBean> alumnoBeanList = new ArrayList<>();
+		
+		for (Alumno alumno : alumnoList) {
+			AlumnoBean alumnoBean = new AlumnoBean();
+			
+			BeanUtils.copyProperties(alumno, alumnoBean);
+			//alumno.setBoleta(new Boleta(alumnoBean.getIdBoleta().getIdBoleta()));
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		
+		return alumnoBeanList;
+	}
+
 }

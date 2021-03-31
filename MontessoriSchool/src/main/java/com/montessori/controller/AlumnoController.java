@@ -63,4 +63,10 @@ public class AlumnoController {
 	public ResponseEntity<List<AlumnoBeanId>> alumnosPorEdad(@PathVariable("edad1") Integer edad1, @PathVariable("edad2") Integer edad2){
 		return new ResponseEntity<>(this.alumnoService.alumnosPorEdad(edad1, edad2), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findAllAlumnosRep")
+	public ResponseEntity<List<AlumnoBean>> alumnosReprobados(){
+		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
+	}
+	
 }

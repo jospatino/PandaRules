@@ -43,7 +43,7 @@ public class Boleta {
 	public Boleta(int idBoleta, double espanol, double matematicas, double historia, boolean asistencia, boolean conduca,
 			double calificacion) {
 		super();
-		idBoleta = idBoleta;
+		this.idBoleta = idBoleta;
 		this.espanol = espanol;
 		this.matematicas = matematicas;
 		this.historia = historia;
@@ -55,7 +55,7 @@ public class Boleta {
 		return idBoleta;
 	}
 	public void setIdBoleta(int idBoleta) {
-		idBoleta = idBoleta;
+		this.idBoleta = idBoleta;
 	}
 	public double getEspanol() {
 		return espanol;
