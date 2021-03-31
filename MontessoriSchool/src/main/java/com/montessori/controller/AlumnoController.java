@@ -93,7 +93,7 @@ public class AlumnoController {
 	}
 	
 	@GetMapping("/findAllAlumnosRep")
-	public ResponseEntity<List<AlumnoBean>> alumnosReprobados(){
+	public ResponseEntity<List<AlumnoPromBean>> alumnosReprobados(){
 		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
 	}
 

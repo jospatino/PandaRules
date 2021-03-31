@@ -26,5 +26,5 @@ public interface AlumnoService {
 	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos);
 	public boolean abonoeuda(AbonarDeudaAlumnoBean abonoDeuda);
 
-	public List<AlumnoBean> findAllAlumnosRep();
+	public List<AlumnoPromBean> findAllAlumnosRep();
 }

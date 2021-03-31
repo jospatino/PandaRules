@@ -273,19 +273,37 @@ public class AlumnoServiceImpl implements AlumnoService{
 	
 
 	@Override
-	public List<AlumnoBean> findAllAlumnosRep() {
-		List<Alumno> alumnoList = this.alumnoRepo.findAllAlumnosRep();
-		List<AlumnoBean> alumnoBeanList = new ArrayList<>();
+	public List<AlumnoPromBean> findAllAlumnosRep() {
+		List<Alumno> alumnoList = this.alumnoRepo.findAll();
+		List<AlumnoPromBean> alumnoBeanList = new ArrayList<>();
 		
+		for(Alumno alumno : alumnoList) {
+			
+			if(alumno.getBoleta().getCalificacion() <= 6) {
+				AlumnoPromBean alumnoBean = new AlumnoPromBean();
+				
+				alumnoBean.setNombreAl(alumno.getNombreAl());
+				alumnoBean.setAppAl(alumno.getAppAl());
+				alumnoBean.setApmAl(alumno.getApmAl());
+				alumnoBean.setEdadAl(alumno.getEdadAl());
+				alumnoBean.setCalificacion(alumno.getBoleta().getCalificacion());
+				
+				alumnoBeanList.add(alumnoBean);
+			}//EndIf
+				
+		}//EndFor
+		
+	/*	
 		for (Alumno alumno : alumnoList) {
-			AlumnoBean alumnoBean = new AlumnoBean();
+			AlumnoPromBean alumnoBean = new AlumnoPromBean();
 			
 			BeanUtils.copyProperties(alumno, alumnoBean);
 			//alumno.setBoleta(new Boleta(alumnoBean.getIdBoleta().getIdBoleta()));
+			alumnoBean.setCalificacion(alumno.getBoleta().getCalificacion());
 			
 			alumnoBeanList.add(alumnoBean);
 		}
-		
+	*/	
 		return alumnoBeanList;
 	}
 }
