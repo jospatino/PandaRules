@@ -19,9 +19,14 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer>{
 	
 	@Query(value = "SELECT * FROM tb_alumno WHERE id_cuenta IN (SELECT id_cuenta FROM cuenta WHERE prom_beca = :promedio)", nativeQuery = true)
 	List<Alumno> findAlumnosPorPromedio(double promedio);
+
+	@Query(value = "SELECT * FROM tb_alumno WHERE id_cuenta IN (SELECT id_cuenta FROM cuenta WHERE prom_beca >= 9.5)", nativeQuery = true)
+	List<Alumno> findAlumnosCuadroDeHonor();
+	
+	@Query(value = "SELECT * FROM tb_alumno INNER JOIN cuenta ON tb_alumno.id_cuenta = cuenta.id_cuenta WHERE deuda > 0", nativeQuery =  true)
+	List<Alumno> findAlumnosDeuda();
 	
 	@Query(value = "select tb_alumno.id_alumno, tb_alumno.nombre_alumno, tb_alumno.app_alumno, tb_alumno.apm_alumno, tb_alumno.edad_alumno, tb_boleta.calificacion from tb_alumno inner join tb_boleta on tb_alumno.id_boleta = tb_boleta.id_boleta where tb_boleta.calificacion <= 6;", nativeQuery = true)
 	List<Alumno> findAllAlumnosRep();
-
-
+	
 }
