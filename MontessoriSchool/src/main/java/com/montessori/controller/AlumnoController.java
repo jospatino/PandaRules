@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
+import com.montessori.bean.AlumnoCuentaBean;
+import com.montessori.bean.AlumnoPromBean;
 import com.montessori.service.AlumnoService;
 
 @RestController
@@ -63,11 +66,37 @@ public class AlumnoController {
 	public ResponseEntity<List<AlumnoBeanId>> alumnosPorEdad(@PathVariable("edad1") Integer edad1, @PathVariable("edad2") Integer edad2){
 		return new ResponseEntity<>(this.alumnoService.alumnosPorEdad(edad1, edad2), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/findAlumosPorProm/{promedio}")
 	public ResponseEntity<List<AlumnoBeanId>> alumnosPorPromedio(@PathVariable("promedio") Double promedio){
 		return new ResponseEntity<>(this.alumnoService.alumnosPorPromedio(promedio), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findAlumnosCuadro")
+	public ResponseEntity<List<AlumnoPromBean>> alumnosCuadroDeHonor(@RequestBody AlumnoPromBean alumnoPromBean){
+		return new ResponseEntity<>(this.alumnoService.alumnosCuadroDeHonor(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAlumnosDeuda")
+	public ResponseEntity<List<AlumnoCuentaBean>> alumnosDeuda(@RequestBody AlumnoCuentaBean alumnoCuentaBean){
+		return new ResponseEntity<>(this.alumnoService.alumnosDeuda(), HttpStatus.OK);
+	} 
+	
+	@PutMapping("/deleteList")
+	public ResponseEntity<Boolean> eliminaListaAlumnos(@RequestBody List<AlumnoBeanId> listAlumnos){
+		return new ResponseEntity<>(this.alumnoService.deleteAllList(listAlumnos),HttpStatus.OK);
+	}
+	
+	@PutMapping("/abonoDeuda")
+	public ResponseEntity<?> abonoDeuda(@RequestBody AbonarDeudaAlumnoBean abonoDeoudaAlumno){
+		return new ResponseEntity<>(this.alumnoService.abonoeuda(abonoDeoudaAlumno),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllAlumnosRep")
+	public ResponseEntity<List<AlumnoPromBean>> alumnosReprobados(){
+		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
+	}
+
 
 	@PostMapping("/saveListAlumnos")
 	public ResponseEntity<Boolean> guardarListaAlumnos(@RequestBody List<AlumnoBeanId> alumnoListBeanId){

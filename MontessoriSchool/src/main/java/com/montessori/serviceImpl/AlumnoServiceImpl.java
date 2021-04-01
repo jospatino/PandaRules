@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.montessori.bean.AbonarDeudaAlumnoBean;
 import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
+import com.montessori.bean.AlumnoCuentaBean;
+import com.montessori.bean.AlumnoPromBean;
 import com.montessori.bean.BoletaBean;
 import com.montessori.bean.CuentaBean;
 import com.montessori.bean.ProfesorBean;
@@ -199,9 +202,8 @@ public class AlumnoServiceImpl implements AlumnoService{
 			alumnoBeanList.add(alumnoBean);
 		}
 		return alumnoBeanList;
- 	}
+ 	}	
 
-	@Override
 	public List<AlumnoBeanId> alumnosPorPromedio(double promedio) {
 		List<Alumno> alumnoList = this.alumnoRepo.findAlumnosPorPromedio(promedio);
 		List<AlumnoBeanId> alumnoBeanList = new ArrayList<>();
@@ -234,4 +236,76 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return true;
 	}
 
+	public List<AlumnoPromBean> alumnosCuadroDeHonor() {
+		List<Alumno> alumnoList = this.alumnoRepo.findAlumnosCuadroDeHonor();
+		List<AlumnoPromBean> alumnoBeanList = new ArrayList<>();
+		
+		for (Alumno alumno : alumnoList) {
+			AlumnoPromBean alumnoBean = new AlumnoPromBean();
+			BeanUtils.copyProperties(alumno, alumnoBean);
+			alumnoBean.setPromBeca(alumno.getCuenta().getPromBeca());
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		return alumnoBeanList;
+	}
+
+	@Override
+	public List<AlumnoCuentaBean> alumnosDeuda() {
+		
+		List<Alumno> alumnoList = this.alumnoRepo.findAlumnosDeuda();
+		List<AlumnoCuentaBean> alumnoBeanList = new ArrayList<>();
+		
+		for (Alumno alumno : alumnoList) {
+			AlumnoCuentaBean alumnoBean = new AlumnoCuentaBean();
+			
+			BeanUtils.copyProperties(alumno, alumnoBean);
+			alumnoBean.setDeuda(alumno.getCuenta().getDeuda());
+			alumnoBean.setPromBeca(alumno.getCuenta().getPromBeca());
+			
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		return alumnoBeanList;
+	}
+
+	@Override
+	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos) {
+		for(AlumnoBeanId alumnoBI:listAlumnos) {
+			Alumno alumno= this.alumnoRepo.findById(alumnoBI.getIdAlumno()).orElseThrow();
+			this.alumnoRepo.deleteById(alumno.getIdAlumno());
+		}
+		return true;
+	}
+
+	@Override
+	public boolean  abonoeuda(AbonarDeudaAlumnoBean abonoDeuda) {
+		Alumno alumno= this.alumnoRepo.findById(abonoDeuda.getIdAlumno()).orElseThrow();
+		alumno.getCuenta().setDeuda(alumno.getCuenta().getDeuda()-abonoDeuda.getAbono());
+		this.alumnoRepo.save(alumno);
+		return true;
+	}
+
+	@Override
+	public List<AlumnoPromBean> findAllAlumnosRep() {
+		List<Alumno> alumnoList = this.alumnoRepo.findAll();
+		List<AlumnoPromBean> alumnoBeanList = new ArrayList<>();
+		
+		for(Alumno alumno : alumnoList) {
+			
+			if(alumno.getBoleta().getCalificacion() <= 6) {
+				AlumnoPromBean alumnoBean = new AlumnoPromBean();
+				
+				alumnoBean.setNombreAl(alumno.getNombreAl());
+				alumnoBean.setAppAl(alumno.getAppAl());
+				alumnoBean.setApmAl(alumno.getApmAl());
+				alumnoBean.setEdadAl(alumno.getEdadAl());
+				alumnoBean.setCalificacion(alumno.getBoleta().getCalificacion());
+				
+				alumnoBeanList.add(alumnoBean);
+			}//EndIf
+				
+		}//EndFor
+		return alumnoBeanList;
+	}
 }

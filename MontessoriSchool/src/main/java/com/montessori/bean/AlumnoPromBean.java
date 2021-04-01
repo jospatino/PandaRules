@@ -1,23 +1,21 @@
 package com.montessori.bean;
 
-public class AlumnoBeanId {
-	
+public class AlumnoPromBean {
 	private int idAlumno;
 	private String nombreAl;
 	private String appAl;
 	private String apmAl;
 	private int edadAl;
 	private String sexoAl;
-	private int idBoleta; 
-	private int idProf;
-	private int idCuenta;
+	private double promBeca;
+	private double calificacion;
 	
-	public AlumnoBeanId() {
+	public AlumnoPromBean() {
 		super();
 	}
 
-	public AlumnoBeanId(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl,
-			int idBoleta, int idProf, int idCuenta) {
+	public AlumnoPromBean(int idAlumno, String nombreAl, String appAl, String apmAl, int edadAl, String sexoAl,
+			double promBeca, double calificacion) {
 		super();
 		this.idAlumno = idAlumno;
 		this.nombreAl = nombreAl;
@@ -25,9 +23,8 @@ public class AlumnoBeanId {
 		this.apmAl = apmAl;
 		this.edadAl = edadAl;
 		this.sexoAl = sexoAl;
-		this.idBoleta = idBoleta;
-		this.idProf = idProf;
-		this.idCuenta = idCuenta;
+		this.promBeca = promBeca;
+		this.calificacion = calificacion;
 	}
 
 	public int getIdAlumno() {
@@ -78,28 +75,22 @@ public class AlumnoBeanId {
 		this.sexoAl = sexoAl;
 	}
 
-	public int getIdBoleta() {
-		return idBoleta;
+	public double getPromBeca() {
+		return promBeca;
 	}
 
-	public void setIdBoleta(int idBoleta) {
-		this.idBoleta = idBoleta;
+	public void setPromBeca(double promBeca) {
+		this.promBeca = promBeca;
 	}
 
-	public int getIdProf() {
-		return idProf;
+	public double getCalificacion() {
+		return calificacion;
 	}
 
-	public void setIdProf(int idProf) {
-		this.idProf = idProf;
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
 	}
-
-	public int getIdCuenta() {
-		return idCuenta;
-	}
-
-	public void setIdCuenta(int idCuenta) {
-		this.idCuenta = idCuenta;
-	}
+	
+	
 
 }
