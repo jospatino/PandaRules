@@ -17,5 +17,6 @@ public interface AlumnoService {
 	public List<AlumnoBeanId> alumnosPorEdad(int edad1, int edad2);
 
 	public List<AlumnoBeanId> alumnosPorPromedio(double promedio);
+	public boolean saveListAlumnos(List<AlumnoBeanId> alumnoBeanIdList);
 
 }

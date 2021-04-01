@@ -217,7 +217,21 @@ public class AlumnoServiceImpl implements AlumnoService{
 		}
 		return alumnoBeanList;
 	}
-
-
+	
+	@Override
+	public boolean saveListAlumnos(List<AlumnoBeanId> alumnoBeanIdList) {
+		for(AlumnoBeanId alumnoBeanId : alumnoBeanIdList) {
+			Alumno alumno = new Alumno();
+			Profesor profesor = this.profesorRepo.findById(alumnoBeanId.getIdProf()).orElseThrow();
+			Boleta boleta = this.boletaRepo.findById(alumnoBeanId.getIdBoleta()).orElseThrow();
+			Cuenta cuenta = this.cuentaRepo.findById(alumnoBeanId.getIdCuenta()).orElseThrow();
+			BeanUtils.copyProperties(alumnoBeanId, alumno);
+			alumno.setProfesor(profesor);
+			alumno.setCuenta(cuenta);
+			alumno.setBoleta(boleta);
+			this.alumnoRepo.save(alumno);
+		}
+		return true;
+	}
 
 }
