@@ -20,11 +20,15 @@ public interface AlumnoService {
 	public List<AlumnoBeanId> alumnosMajaderos(int conducta);
 	public List<AlumnoBeanId> alumnosPorEdad(int edad1, int edad2);
 	public List<AlumnoBeanId> alumnosPorPromedio(double promedio);
+
+	public boolean saveListAlumnos(List<AlumnoBeanId> alumnoBeanIdList);
+
 	public List<AlumnoPromBean> alumnosCuadroDeHonor();
 	public List<AlumnoCuentaBean> alumnosDeuda();
 	
 	public boolean deleteAllList(List<AlumnoBeanId> listAlumnos);
 	public boolean abonoeuda(AbonarDeudaAlumnoBean abonoDeuda);
+
 
 	public List<AlumnoPromBean> findAllAlumnosRep();
 	

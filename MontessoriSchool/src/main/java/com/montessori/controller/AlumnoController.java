@@ -103,4 +103,8 @@ public class AlumnoController {
 	}
 
 
+	@PostMapping("/saveListAlumnos")
+	public ResponseEntity<Boolean> guardarListaAlumnos(@RequestBody List<AlumnoBeanId> alumnoListBeanId){
+		return new ResponseEntity<>(this.alumnoService.saveListAlumnos(alumnoListBeanId), HttpStatus.OK);
+	}
 }
