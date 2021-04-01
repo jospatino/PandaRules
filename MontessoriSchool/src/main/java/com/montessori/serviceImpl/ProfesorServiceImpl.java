@@ -123,7 +123,7 @@ public class ProfesorServiceImpl implements ProfesorService{
 			
 			BeanUtils.copyProperties(alumno, alumnoBean);
 			//alumnoBean.setIdBoleta(alumno.getBoleta().getIdBoleta());;
-			alumnoBean.setIdProf(alumno.getProfesor().getIdProf());
+			//alumnoBean.setIdProf(alumno.getProfesor().getIdProf());
 			
 			alumnoBeanList.add(alumnoBean);
 		}
