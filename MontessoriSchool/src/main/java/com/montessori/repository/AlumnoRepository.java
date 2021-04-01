@@ -26,5 +26,7 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer>{
 	@Query(value = "SELECT * FROM tb_alumno INNER JOIN cuenta ON tb_alumno.id_cuenta = cuenta.id_cuenta WHERE deuda > 0", nativeQuery =  true)
 	List<Alumno> findAlumnosDeuda();
 	
+	@Query(value = "select sexo_alumno, count(*) from tb_alumno group by sexo_alumno", nativeQuery = true)
+	List<Alumno> countNinasYNinos();
 	
 }

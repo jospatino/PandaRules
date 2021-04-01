@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
+import com.montessori.bean.ProfesorConAlumnoBean;
 import com.montessori.bean.ProfesorSueldoBean;
 
 public interface ProfesorService {
@@ -16,5 +17,7 @@ public interface ProfesorService {
 	public ProfesorSueldoBean sueldoProfesor(Integer id);
 	
 	public NominaTotalProfesores nominaTotalProfesores();
+	
+	public ProfesorConAlumnoBean mostrarAlumnosProfesor(Integer IdProf);
 
 }

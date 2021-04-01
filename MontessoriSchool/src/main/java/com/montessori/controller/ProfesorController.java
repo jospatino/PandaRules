@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
+import com.montessori.bean.ProfesorConAlumnoBean;
 import com.montessori.bean.ProfesorSueldoBean;
 import com.montessori.service.ProfesorService;
 
@@ -59,6 +60,11 @@ public class ProfesorController {
 	@GetMapping("/nominaTotal")
 	public ResponseEntity<NominaTotalProfesores> nominaTotal(){
 		return new ResponseEntity<>(this.profeService.nominaTotalProfesores(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllAlumnosByIdProf/{IdProf}")
+	public ResponseEntity<ProfesorConAlumnoBean> findAllAlumnosByIdProf(@PathVariable("IdProf") Integer IdProf){
+		return new ResponseEntity<>(this.profeService.mostrarAlumnosProfesor(IdProf), HttpStatus.OK);
 	}
 
 }
