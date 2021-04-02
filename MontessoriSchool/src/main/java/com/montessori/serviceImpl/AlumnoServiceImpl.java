@@ -311,7 +311,6 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return alumnoBeanList;
 	}
 
-	//Pendiente
 	@Override
 	public List<AlumnoSexBean> listNinosYNinas() {
 		
@@ -332,10 +331,9 @@ public class AlumnoServiceImpl implements AlumnoService{
 			alumnoSexBeanList.add(alumnoSexBean);
 			
 		}
-		
+
 		return alumnoSexBeanList;
 	}
 
-	//Pendiente
 	
 }
