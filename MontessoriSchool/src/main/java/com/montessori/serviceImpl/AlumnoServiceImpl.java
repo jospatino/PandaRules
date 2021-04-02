@@ -321,10 +321,6 @@ public class AlumnoServiceImpl implements AlumnoService{
 			
 			AlumnoSexBean alumnoSexBean = new AlumnoSexBean();
 			
-			for(int i = 0 ; i < alumnoList.size() ; i++) {
-				i++;
-			}
-			
 			alumnoSexBean.setIdAlumno(alumno.getIdAlumno());
 			alumnoSexBean.setSexoAl(alumno.getSexoAl());
 
