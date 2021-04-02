@@ -10,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.montessori.bean.CuentaBean;
+import com.montessori.model.Alumno;
+import com.montessori.model.Boleta;
 import com.montessori.model.Cuenta;
+import com.montessori.repository.AlumnoRepository;
+import com.montessori.repository.BoletaRepository;
 import com.montessori.repository.CuentaRepository;
 import com.montessori.service.CuentaService;
 
@@ -20,6 +24,12 @@ public class CuentaServiceImpl implements CuentaService{
 	
 	@Autowired
 	private CuentaRepository cuentaRepo;
+	
+	@Autowired
+	private BoletaRepository boletaRepo;
+	
+	@Autowired
+	private AlumnoRepository alumnoRepo;
 
 	@Override
 	public boolean saveCuenta(CuentaBean cuentaBean) {
@@ -70,6 +80,24 @@ public class CuentaServiceImpl implements CuentaService{
 	public boolean deleteCuenta(Integer id) {
 		Cuenta cuenta = this.cuentaRepo.findById(id).orElseThrow();
 		this.cuentaRepo.delete(cuenta);
+		return true;
+	}
+
+	@Override
+	public boolean updatePromBeca() {
+		List<Alumno> alumnoList = this.alumnoRepo.findAll();
+		for(Alumno alumno : alumnoList) {
+			Boleta boleta = this.boletaRepo.findById(alumno.getBoleta().getIdBoleta()).orElseThrow();
+			Cuenta cuenta = this.cuentaRepo.findById(alumno.getCuenta().getIdCuenta()).orElseThrow();
+			double prom = (boleta.getEspanol() + boleta.getHistoria() + boleta.getMatematicas())/3 ;
+			if(prom > 9 && boleta.getAsistencia() == true && boleta.isConduca()) {
+				cuenta.setPromBeca(900);
+			}else {
+				cuenta.setPromBeca(0);
+			}
+			this.cuentaRepo.save(cuenta);
+			
+		}
 		return true;
 	}
 	

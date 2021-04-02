@@ -47,4 +47,9 @@ public class CuentaController{
 	public ResponseEntity<Boolean> eliminarCuenta(@PathVariable("idCuenta") Integer idCuenta){
 		return new ResponseEntity<>(this.cuentaService.deleteCuenta(idCuenta), HttpStatus.OK);
 	}
+	
+	@GetMapping("/updatePromBeca")
+	public ResponseEntity<Boolean> actualizarPromBeca(){
+		return new ResponseEntity<>(this.cuentaService.updatePromBeca(),HttpStatus.OK);
+	}
 }
