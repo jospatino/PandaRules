@@ -97,7 +97,6 @@ public class AlumnoController {
 		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
 	}
 
-
 	@PostMapping("/saveListAlumnos")
 	public ResponseEntity<Boolean> guardarListaAlumnos(@RequestBody List<AlumnoBeanId> alumnoListBeanId){
 		return new ResponseEntity<>(this.alumnoService.saveListAlumnos(alumnoListBeanId), HttpStatus.OK);

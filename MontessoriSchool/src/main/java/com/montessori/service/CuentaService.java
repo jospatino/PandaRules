@@ -11,5 +11,7 @@ public interface CuentaService {
 	public List<CuentaBean> findAllCuentas();
 	public boolean updateCuenta(CuentaBean cuentaBean);
 	public boolean deleteCuenta(Integer id);
+	
+	public boolean updatePromBeca();
 
 }
