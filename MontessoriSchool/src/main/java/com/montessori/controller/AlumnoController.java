@@ -96,6 +96,11 @@ public class AlumnoController {
 	public ResponseEntity<List<AlumnoPromBean>> alumnosReprobados(){
 		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/contar_ninos_y_ninas")
+	public ResponseEntity<List<AlumnoBean>> contarNinosYNinas(){
+		return new ResponseEntity<>(this.alumnoService.listNinosYNinas(), HttpStatus.OK);
+	}
 
 	@PostMapping("/saveListAlumnos")
 	public ResponseEntity<Boolean> guardarListaAlumnos(@RequestBody List<AlumnoBeanId> alumnoListBeanId){

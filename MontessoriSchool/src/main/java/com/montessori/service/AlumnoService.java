@@ -31,4 +31,6 @@ public interface AlumnoService {
 
 
 	public List<AlumnoPromBean> findAllAlumnosRep();
+	
+	public List<AlumnoBean> listNinosYNinas();
 }

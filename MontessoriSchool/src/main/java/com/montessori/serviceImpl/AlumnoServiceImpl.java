@@ -308,4 +308,24 @@ public class AlumnoServiceImpl implements AlumnoService{
 		}//EndFor
 		return alumnoBeanList;
 	}
+
+	//Pendiente
+	@Override
+	public List<AlumnoBean> listNinosYNinas() {
+		List<Alumno> alumnoList = this.alumnoRepo.countNinasYNinos();
+		List<AlumnoBean> alumnoBeanList = new ArrayList<>();
+				
+		for(Alumno alumno : alumnoList) {
+			AlumnoBean alumnoBean = new AlumnoBean();
+			
+			BeanUtils.copyProperties(alumnoBean, alumno);
+			alumnoBean.setSexoAl(alumno.getSexoAl());
+			
+			alumnoBeanList.add(alumnoBean);
+		}
+		
+		
+
+		return alumnoBeanList;
+	}
 }
