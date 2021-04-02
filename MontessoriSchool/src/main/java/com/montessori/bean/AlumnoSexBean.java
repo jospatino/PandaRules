@@ -1,23 +1,17 @@
 package com.montessori.bean;
 
 public class AlumnoSexBean {
-	private int idAlumno;
 	private String sexoAl;
+	private int countAl;
 	
 	public AlumnoSexBean() {
+		super();
 	}
 
-	public AlumnoSexBean(int idAlumno, String sexoAl) {
-		this.idAlumno = idAlumno;
+	public AlumnoSexBean(String sexoAl, int countAl) {
+		super();
 		this.sexoAl = sexoAl;
-	}
-
-	public int getIdAlumno() {
-		return idAlumno;
-	}
-
-	public void setIdAlumno(int idAlumno) {
-		this.idAlumno = idAlumno;
+		this.countAl = countAl;
 	}
 
 	public String getSexoAl() {
@@ -27,7 +21,13 @@ public class AlumnoSexBean {
 	public void setSexoAl(String sexoAl) {
 		this.sexoAl = sexoAl;
 	}
-	
-	
 
+	public int getCountAl() {
+		return countAl;
+	}
+
+	public void setCountAl(int countAl) {
+		this.countAl = countAl;
+	}
+	
 }

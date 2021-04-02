@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -314,19 +313,26 @@ public class AlumnoServiceImpl implements AlumnoService{
 	@Override
 	public List<AlumnoSexBean> listNinosYNinas() {
 		
-		List<Alumno> alumnoList = this.alumnoRepo.findAll(Sort.by(Sort.Direction.ASC, "sexoAl"));
+		List<Alumno> alumnoList = this.alumnoRepo.findAll();
 		List<AlumnoSexBean> alumnoSexBeanList = new ArrayList<>();
 		
+		AlumnoSexBean alumnoHom = new AlumnoSexBean("H",0);
+		AlumnoSexBean alumnoMuj = new AlumnoSexBean("M",0);
+		
+		int h = 0, m = 0; 
+		
 		for(Alumno alumno : alumnoList) {
-			
-			AlumnoSexBean alumnoSexBean = new AlumnoSexBean();
-			
-			alumnoSexBean.setIdAlumno(alumno.getIdAlumno());
-			alumnoSexBean.setSexoAl(alumno.getSexoAl());
-
-			alumnoSexBeanList.add(alumnoSexBean);
-			
+			if(alumno.getSexoAl().equals("H")) {
+				h += 1;
+			}else {
+				m += 1;
+			}
 		}
+		alumnoHom.setCountAl(h);
+		alumnoMuj.setCountAl(m);
+		
+		alumnoSexBeanList.add(alumnoHom);
+		alumnoSexBeanList.add(alumnoMuj);
 
 		return alumnoSexBeanList;
 	}
