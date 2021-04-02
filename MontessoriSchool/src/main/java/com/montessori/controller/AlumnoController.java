@@ -19,6 +19,7 @@ import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 import com.montessori.bean.AlumnoCuentaBean;
 import com.montessori.bean.AlumnoPromBean;
+import com.montessori.bean.AlumnoSexBean;
 import com.montessori.service.AlumnoService;
 
 @RestController
@@ -97,8 +98,8 @@ public class AlumnoController {
 		return new ResponseEntity<>(this.alumnoService.findAllAlumnosRep(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/contar_ninos_y_ninas")
-	public ResponseEntity<List<AlumnoBean>> contarNinosYNinas(){
+	@GetMapping("/contarNinosYNinas")
+	public ResponseEntity<List<AlumnoSexBean>> contarNinosYNinas(){
 		return new ResponseEntity<>(this.alumnoService.listNinosYNinas(), HttpStatus.OK);
 	}
 

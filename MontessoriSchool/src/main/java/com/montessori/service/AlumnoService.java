@@ -7,6 +7,7 @@ import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 import com.montessori.bean.AlumnoCuentaBean;
 import com.montessori.bean.AlumnoPromBean;
+import com.montessori.bean.AlumnoSexBean;
 
 public interface AlumnoService {
 	
@@ -32,5 +33,5 @@ public interface AlumnoService {
 
 	public List<AlumnoPromBean> findAllAlumnosRep();
 	
-	public List<AlumnoBean> listNinosYNinas();
+	public List<AlumnoSexBean> listNinosYNinas();
 }

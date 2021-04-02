@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import com.montessori.bean.AlumnoBean;
 import com.montessori.bean.AlumnoBeanId;
 import com.montessori.bean.AlumnoCuentaBean;
 import com.montessori.bean.AlumnoPromBean;
+import com.montessori.bean.AlumnoSexBean;
 import com.montessori.bean.BoletaBean;
 import com.montessori.bean.CuentaBean;
 import com.montessori.bean.ProfesorBean;
@@ -311,21 +313,29 @@ public class AlumnoServiceImpl implements AlumnoService{
 
 	//Pendiente
 	@Override
-	public List<AlumnoBean> listNinosYNinas() {
-		List<Alumno> alumnoList = this.alumnoRepo.countNinasYNinos();
-		List<AlumnoBean> alumnoBeanList = new ArrayList<>();
-				
+	public List<AlumnoSexBean> listNinosYNinas() {
+		
+		List<Alumno> alumnoList = this.alumnoRepo.findAll(Sort.by(Sort.Direction.ASC, "sexoAl"));
+		List<AlumnoSexBean> alumnoSexBeanList = new ArrayList<>();
+		
 		for(Alumno alumno : alumnoList) {
-			AlumnoBean alumnoBean = new AlumnoBean();
 			
-			BeanUtils.copyProperties(alumnoBean, alumno);
-			alumnoBean.setSexoAl(alumno.getSexoAl());
+			AlumnoSexBean alumnoSexBean = new AlumnoSexBean();
 			
-			alumnoBeanList.add(alumnoBean);
+			for(int i = 0 ; i < alumnoList.size() ; i++) {
+				i++;
+			}
+			
+			alumnoSexBean.setIdAlumno(alumno.getIdAlumno());
+			alumnoSexBean.setSexoAl(alumno.getSexoAl());
+
+			alumnoSexBeanList.add(alumnoSexBean);
+			
 		}
 		
-		
-
-		return alumnoBeanList;
+		return alumnoSexBeanList;
 	}
+
+	//Pendiente
+	
 }

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.montessori.bean.AlumnoBean;
+import com.montessori.bean.BoletaBean;
+import com.montessori.bean.CuentaBean;
 import com.montessori.bean.NominaTotalProfesores;
 import com.montessori.bean.ProfesorBean;
 import com.montessori.bean.ProfesorConAlumnoBean;
@@ -122,8 +124,19 @@ public class ProfesorServiceImpl implements ProfesorService{
 			AlumnoBean alumnoBean = new AlumnoBean();
 			
 			BeanUtils.copyProperties(alumno, alumnoBean);
-			//alumnoBean.setIdBoleta(alumno.getBoleta().getIdBoleta());;
-			//alumnoBean.setIdProf(alumno.getProfesor().getIdProf());
+			
+			ProfesorBean profesorBean = new ProfesorBean();
+			BeanUtils.copyProperties(alumno.getProfesor(), profesorBean);
+			
+			BoletaBean boletaBean = new BoletaBean();
+			BeanUtils.copyProperties(alumno.getBoleta(), boletaBean);
+			
+			CuentaBean cuentaBean = new CuentaBean();
+			BeanUtils.copyProperties(alumno.getCuenta(), cuentaBean);
+			
+			alumnoBean.setIdBoleta(boletaBean);;
+			alumnoBean.setIdProf(profesorBean);
+			alumnoBean.setIdCuenta(cuentaBean);
 			
 			alumnoBeanList.add(alumnoBean);
 		}
